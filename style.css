@@ -1,31 +1,31 @@
 /* General Layout */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6f9;
+  background: linear-gradient(to right, #f4f6f9, #e6f7ff);
   margin: 0;
   padding: 0;
   color: #333;
 }
 
 header {
-  background: #004080;
+  background: linear-gradient(to right, #004080, #0066cc);
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
 }
 
 header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 30px;
 }
 
 main {
-  max-width: 400px;
+  max-width: 450px;
   margin: 40px auto;
   background: white;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 h2 {
@@ -35,10 +35,10 @@ h2 {
 
 form input, form select, form button {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 form button {
@@ -57,7 +57,7 @@ form button:hover {
   background: #e6f7ff;
   border: 1px solid #99d6ff;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 6px;
   margin-bottom: 20px;
 }
 
@@ -66,9 +66,7 @@ footer {
   padding: 15px;
   background: #004080;
   color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: 20px;
 }
 
 /* Hide/Show Screens */
