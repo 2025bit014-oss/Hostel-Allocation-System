@@ -1,14 +1,14 @@
 /* General Layout */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(to right, #f4f6f9, #e6f7ff);
+  background: linear-gradient(to right, #fff, #ffe6f2);
   margin: 0;
   padding: 0;
   color: #333;
 }
 
 header {
-  background: linear-gradient(to right, #004080, #0066cc);
+  background: linear-gradient(to right, deepPink, #ff6699);
   color: white;
   text-align: center;
   padding: 25px;
@@ -29,7 +29,7 @@ main {
 }
 
 h2 {
-  color: #004080;
+  color: deepPink;
   margin-bottom: 20px;
 }
 
@@ -42,7 +42,7 @@ form input, form select, form button {
 }
 
 form button {
-  background: #004080;
+  background: deepPink;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -50,12 +50,12 @@ form button {
 }
 
 form button:hover {
-  background: #0066cc;
+  background: #ff6699;
 }
 
 .result-box {
-  background: #e6f7ff;
-  border: 1px solid #99d6ff;
+  background: #ffe6f2;
+  border: 1px solid #ff99cc;
   padding: 15px;
   border-radius: 6px;
   margin-bottom: 20px;
@@ -64,7 +64,7 @@ form button:hover {
 footer {
   text-align: center;
   padding: 15px;
-  background: #004080;
+  background: deepPink;
   color: white;
   margin-top: 20px;
 }
@@ -76,4 +76,77 @@ footer {
 
 .screen.active, .screen:not(.hidden) {
   display: block;
+}
+
+/* Admin Dashboard Styling */
+.admin-body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(to right, deepPink, #ff6699);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.admin-header {
+  text-align: center;
+  padding: 20px;
+  background: #cc0066;
+}
+
+.admin-main {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #ffe6f2;
+  border: 2px solid #ff99cc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: 25%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.applications table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.applications th, .applications td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.approve-btn {
+  background: deepPink;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background: #ff6699;
+}
+
+.admin-footer {
+  text-align: center;
+  padding: 15px;
+  background: #cc0066;
+  color: white;
+  margin-top: 20px;
 }
