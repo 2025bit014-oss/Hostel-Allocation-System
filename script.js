@@ -1,3 +1,4 @@
+// Admin Login
 function adminLogin() {
   const email = document.getElementById('adminEmail').value;
   const password = document.getElementById('adminPassword').value;
@@ -9,18 +10,23 @@ function adminLogin() {
   }
 }
 
+// Student Login
 function studentLogin() {
   const email = document.getElementById('studentEmail').value;
   const password = document.getElementById('studentPassword').value;
 
-  if (email && password) {
-    localStorage.setItem('studentEmail', email);
+  const storedEmail = localStorage.getItem("studentEmail");
+  const storedPassword = localStorage.getItem("studentPassword");
+
+  if (email === storedEmail && password === storedPassword) {
+    localStorage.setItem("loggedInStudent", email);
     window.location.href = "application.html";
   } else {
-    alert("Please enter valid student credentials.");
+    alert("Invalid student credentials. Please register first.");
   }
 }
 
+// Forgot Password
 function forgotPassword() {
   const email = document.getElementById('studentEmail').value;
   if (email) {
@@ -31,26 +37,32 @@ function forgotPassword() {
   }
 }
 
+// Register Student
 function registerStudent() {
   const email = document.getElementById('newStudentEmail').value;
+  const password = document.getElementById('newStudentPassword').value;
+
+  localStorage.setItem("studentEmail", email);
+  localStorage.setItem("studentPassword", password);
+
   alert("Registration successful for " + email + ". You can now log in.");
   window.location.href = "index.html";
 }
 
+// Allocate Room
 function allocateRoom() {
   const hostel = document.getElementById('hostelChoice').value;
   const room = document.getElementById('roomChoice').value;
-  const email = localStorage.getItem('studentEmail');
+  const email = localStorage.getItem("loggedInStudent");
 
   alert("🎉 You have been allocated " + hostel + ", " + room + ". A confirmation email has been sent to " + email);
   sendEmail(email, "Hostel Allocation Confirmation", 
     "Dear Student,\n\nWe are pleased to inform you that you have been allocated " + hostel + " (" + room + "). Please report to the hostel warden for check-in.\n\nRegards,\nUniversity Hostel Management");
 }
 
-/* Email Sending Function (requires backend setup with SMTP or Firebase) */
+// Email Sending (EmailJS integration)
 function sendEmail(to, subject, body) {
-  // Example using EmailJS (frontend email service)
-  emailjs.send("service_id", "template_id", {
+  emailjs.send("your_service_id", "your_template_id", {
     to_email: to,
     subject: subject,
     message: body
