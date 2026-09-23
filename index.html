@@ -11,17 +11,17 @@
     <p>Plan Smart | Manage Well | Live Comfortably</p>
   </header>
 
-  <main>
+  <main class="portal-container">
     <!-- Admin Portal -->
     <section class="portal">
       <h2>Admin Portal</h2>
       <small>Authorized personnel only</small>
-      <form>
+      <form onsubmit="adminLogin(event)">
         <input type="email" id="adminEmail" placeholder="Admin Email Address" required>
         <input type="password" id="adminPassword" placeholder="Enter your password" required>
-        <button type="button" onclick="adminLogin()">Sign In</button>
+        <button type="submit">Sign In</button>
         <p><a href="register_admin.html">Sign Up as Admin</a></p>
-        <p><a href="#" onclick="forgotPassword()">Forgot your password?</a></p>
+        <p><a href="forgot-password.html">Forgot your password?</a></p>
       </form>
     </section>
 
@@ -29,12 +29,12 @@
     <section class="portal">
       <h2>Student Portal</h2>
       <small>Enter your email</small>
-      <form>
+      <form onsubmit="studentLogin(event)">
         <input type="email" id="studentEmail" placeholder="Student Email Address" required>
         <input type="password" id="studentPassword" placeholder="Enter your password" required>
-        <button type="button" onclick="studentLogin()">Sign In</button>
+        <button type="submit">Sign In</button>
         <p><a href="register.html">Sign Up as Student</a></p>
-        <p><a href="#" onclick="forgotPassword()">Forgot your password?</a></p>
+        <p><a href="forgot-password.html">Forgot your password?</a></p>
       </form>
     </section>
   </main>
