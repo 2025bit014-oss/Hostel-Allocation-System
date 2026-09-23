@@ -28,7 +28,9 @@ function registerStudent() {
   const password = document.getElementById('newStudentPassword').value;
   localStorage.setItem("studentEmail", email);
   localStorage.setItem("studentPassword", password);
-  alert("Registration successful. You can now log in.");
+  alert("Registration successful. You have been allocated Hostel A (Room 12). A confirmation email has been sent.");
+  sendEmail(email, "Hostel Allocation Confirmation", 
+    "Dear Student,\n\nYou have been allocated Hostel A (Room 12). Please report to the hostel warden for check-in.\n\nRegards,\nUniversity Hostel Management");
   window.location.href = "index.html";
 }
 
@@ -61,23 +63,4 @@ function forgotPassword() {
 // Room Allocation
 function allocateRoom() {
   const hostel = document.getElementById('hostelChoice').value;
-  const room = document.getElementById('roomChoice').value;
-  const email = localStorage.getItem("loggedInStudent");
-
-  alert("🎉 Allocation Successful! You have been allocated " + hostel + " (" + room + "). A confirmation email has been sent to " + email);
-  sendEmail(email, "Hostel Allocation Confirmation", 
-    "Dear Student,\n\nWe are pleased to inform you that you have been allocated " + hostel + " (" + room + "). Please report to the hostel warden for check-in.\n\nRegards,\nUniversity Hostel Management");
-}
-
-// Email Sending (EmailJS integration)
-function sendEmail(to, subject, body) {
-  emailjs.send("your_service_id", "your_template_id", {
-    to_email: to,
-    subject: subject,
-    message: body
-  }).then(function(response) {
-    console.log("Email sent successfully!", response.status, response.text);
-  }, function(error) {
-    console.error("Failed to send email.", error);
-  });
-}
+  const room = document.getElementById('room
