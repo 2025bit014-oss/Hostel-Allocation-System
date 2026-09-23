@@ -1,20 +1,41 @@
+// Admin Registration
+function registerAdmin() {
+  const email = document.getElementById('newAdminEmail').value;
+  const password = document.getElementById('newAdminPassword').value;
+  localStorage.setItem("adminEmail", email);
+  localStorage.setItem("adminPassword", password);
+  alert("Admin registration successful. You can now log in.");
+  window.location.href = "index.html";
+}
+
 // Admin Login
 function adminLogin() {
   const email = document.getElementById('adminEmail').value;
   const password = document.getElementById('adminPassword').value;
+  const storedEmail = localStorage.getItem("adminEmail");
+  const storedPassword = localStorage.getItem("adminPassword");
 
-  if (email === "edrickwaiswa@gmail.com" && password === "admin123") {
+  if (email === storedEmail && password === storedPassword) {
     window.location.href = "admin.html";
   } else {
-    alert("Invalid Admin credentials. Authorized personnel only.");
+    alert("Invalid Admin credentials.");
   }
+}
+
+// Student Registration
+function registerStudent() {
+  const email = document.getElementById('newStudentEmail').value;
+  const password = document.getElementById('newStudentPassword').value;
+  localStorage.setItem("studentEmail", email);
+  localStorage.setItem("studentPassword", password);
+  alert("Registration successful. You can now log in.");
+  window.location.href = "index.html";
 }
 
 // Student Login
 function studentLogin() {
   const email = document.getElementById('studentEmail').value;
   const password = document.getElementById('studentPassword').value;
-
   const storedEmail = localStorage.getItem("studentEmail");
   const storedPassword = localStorage.getItem("studentPassword");
 
@@ -22,7 +43,7 @@ function studentLogin() {
     localStorage.setItem("loggedInStudent", email);
     window.location.href = "application.html";
   } else {
-    alert("Invalid student credentials. Please register first.");
+    alert("Invalid student credentials.");
   }
 }
 
@@ -37,25 +58,13 @@ function forgotPassword() {
   }
 }
 
-// Register Student
-function registerStudent() {
-  const email = document.getElementById('newStudentEmail').value;
-  const password = document.getElementById('newStudentPassword').value;
-
-  localStorage.setItem("studentEmail", email);
-  localStorage.setItem("studentPassword", password);
-
-  alert("Registration successful for " + email + ". You can now log in.");
-  window.location.href = "index.html";
-}
-
-// Allocate Room
+// Room Allocation
 function allocateRoom() {
   const hostel = document.getElementById('hostelChoice').value;
   const room = document.getElementById('roomChoice').value;
   const email = localStorage.getItem("loggedInStudent");
 
-  alert("🎉 You have been allocated " + hostel + ", " + room + ". A confirmation email has been sent to " + email);
+  alert("🎉 Allocation Successful! You have been allocated " + hostel + " (" + room + "). A confirmation email has been sent to " + email);
   sendEmail(email, "Hostel Allocation Confirmation", 
     "Dear Student,\n\nWe are pleased to inform you that you have been allocated " + hostel + " (" + room + "). Please report to the hostel warden for check-in.\n\nRegards,\nUniversity Hostel Management");
 }
