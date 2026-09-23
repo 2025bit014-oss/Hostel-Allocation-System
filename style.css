@@ -20,23 +20,35 @@ header h1 {
 }
 
 main {
-  max-width: 450px;
-  margin: 40px auto;
+  display: flex;
+  justify-content: space-around;
+  margin: 40px;
+}
+
+.portal {
   background: white;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  width: 40%;
+  text-align: center;
 }
 
 h2 {
   color: deepPink;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-form input, form select, form button {
-  width: 100%;
+small {
+  display: block;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+form input, form button {
+  width: 90%;
   padding: 12px;
-  margin: 10px 0;
+  margin: 10px auto;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -53,100 +65,10 @@ form button:hover {
   background: #ff6699;
 }
 
-.result-box {
-  background: #ffe6f2;
-  border: 1px solid #ff99cc;
-  padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-
 footer {
   text-align: center;
   padding: 15px;
   background: deepPink;
-  color: white;
-  margin-top: 20px;
-}
-
-/* Hide/Show Screens */
-.screen {
-  display: none;
-}
-
-.screen.active, .screen:not(.hidden) {
-  display: block;
-}
-
-/* Admin Dashboard Styling */
-.admin-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(to right, deepPink, #ff6699);
-  margin: 0;
-  padding: 0;
-  color: #fff;
-}
-
-.admin-header {
-  text-align: center;
-  padding: 20px;
-  background: #cc0066;
-}
-
-.admin-main {
-  max-width: 900px;
-  margin: 30px auto;
-  background: white;
-  color: #333;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.stats {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 30px;
-}
-
-.card {
-  background: #ffe6f2;
-  border: 2px solid #ff99cc;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  width: 25%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.applications table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.applications th, .applications td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-.approve-btn {
-  background: deepPink;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.approve-btn:hover {
-  background: #ff6699;
-}
-
-.admin-footer {
-  text-align: center;
-  padding: 15px;
-  background: #cc0066;
   color: white;
   margin-top: 20px;
 }
