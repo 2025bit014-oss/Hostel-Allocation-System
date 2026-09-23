@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Hostel Allocation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <h1>🏫 Admin Dashboard</h1>
+    <p>Monitor Hostel Occupancy & Applications</p>
+  </header>
+
+  <main class="admin-main">
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="card">
+        <h2>Total Rooms</h2>
+        <p>120</p>
+      </div>
+      <div class="card">
+        <h2>Occupied Rooms</h2>
+        <p>95</p>
+      </div>
+      <div class="card">
+        <h2>Pending Applications</h2>
+        <p>25</p>
+      </div>
+    </section>
+
+    <!-- Applications Table -->
+    <section class="applications">
+      <h2>Pending Applications</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Preferred Hostel</th>
+            <th>Room Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>STU001</td>
+            <td>John Doe</td>
+            <td>Hostel A</td>
+            <td>Single</td>
+            <td><button class="approve-btn">Approve</button></td>
+          </tr>
+          <tr>
+            <td>STU002</td>
+            <td>Mary Jane</td>
+            <td>Hostel B</td>
+            <td>Double</td>
+            <td><button class="approve-btn">Approve</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="admin-footer">
+    <p>&copy; 2026 University Hostel Allocation System</p>
+  </footer>
+</body>
+</html>
