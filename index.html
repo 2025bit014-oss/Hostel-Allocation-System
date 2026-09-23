@@ -8,32 +8,33 @@
 <body>
   <header>
     <h1>🏫 University Hostel Allocation System</h1>
-    <p>Fair • Efficient • Transparent</p>
+    <p>Plan Smart | Manage Well | Live Comfortably</p>
   </header>
 
   <main>
-    <!-- Admin Login Portal -->
-    <section id="adminLogin" class="portal">
-      <h2>Admin Sign In</h2>
+    <!-- Admin Portal -->
+    <section class="portal">
+      <h2>Admin Portal</h2>
       <small>Authorized personnel only</small>
       <form>
-        <input type="email" id="adminEmail" placeholder="Enter Admin Email" required>
+        <input type="email" id="adminEmail" placeholder="Admin Email Address" required>
         <input type="password" id="adminPassword" placeholder="Enter your password" required>
-        <button type="button" onclick="adminLogin()">Login as Admin</button>
-        <p>Don’t have an account? <a href="register_admin.html">Sign Up</a></p>
+        <button type="button" onclick="adminLogin()">Sign In</button>
+        <p><a href="register_admin.html">Sign Up as Admin</a></p>
+        <p><a href="#" onclick="forgotPassword()">Forgot your password?</a></p>
       </form>
     </section>
 
-    <!-- Student Login Portal -->
-    <section id="studentLogin" class="portal">
-      <h2>Student Sign In</h2>
+    <!-- Student Portal -->
+    <section class="portal">
+      <h2>Student Portal</h2>
       <small>Enter your email</small>
       <form>
-        <input type="email" id="studentEmail" placeholder="Enter Student Email" required>
-        <input type="password" id="studentPassword" placeholder="Enter Password" required>
-        <button type="button" onclick="studentLogin()">Login as Student</button>
-        <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
-        <p>Don’t have an account? <a href="register.html">Sign Up</a></p>
+        <input type="email" id="studentEmail" placeholder="Student Email Address" required>
+        <input type="password" id="studentPassword" placeholder="Enter your password" required>
+        <button type="button" onclick="studentLogin()">Sign In</button>
+        <p><a href="register.html">Sign Up as Student</a></p>
+        <p><a href="#" onclick="forgotPassword()">Forgot your password?</a></p>
       </form>
     </section>
   </main>
