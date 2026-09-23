@@ -1,20 +1,81 @@
+/* General Layout */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #004080;
+  color: white;
   text-align: center;
-  margin-top: 50px;
+  padding: 20px;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+main {
+  max-width: 400px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #004080;
+  margin-bottom: 20px;
+}
+
+form input, form select, form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #004080;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #0066cc;
+}
+
+.result-box {
+  background: #e6f7ff;
+  border: 1px solid #99d6ff;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #004080;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Hide/Show Screens */
 .screen {
-  display: block;
-}
-
-.hidden {
   display: none;
 }
 
-input, select, button {
+.screen.active, .screen:not(.hidden) {
   display: block;
-  margin: 10px auto;
-  padding: 8px;
-  width: 200px;
 }
