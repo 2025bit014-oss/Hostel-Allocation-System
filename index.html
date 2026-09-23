@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hostel Allocation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen">
+    <h2>Login</h2>
+    <input type="text" id="studentId" placeholder="Student ID">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="showScreen('registerScreen')">Register</button>
+    <button onclick="showScreen('applicationScreen')">Login</button>
+  </div>
+
+  <!-- Registration Screen -->
+  <div id="registerScreen" class="screen hidden">
+    <h2>Student Registration</h2>
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Course">
+    <input type="text" placeholder="Year of Study">
+    <input type="text" placeholder="Contact Info">
+    <button onclick="showScreen('applicationScreen')">Submit Registration</button>
+  </div>
+
+  <!-- Application Screen -->
+  <div id="applicationScreen" class="screen hidden">
+    <h2>Hostel Application</h2>
+    <select>
+      <option>Hostel A</option>
+      <option>Hostel B</option>
+      <option>Hostel C</option>
+    </select>
+    <select>
+      <option>Single Room</option>
+      <option>Double Room</option>
+    </select>
+    <button onclick="showScreen('allocationScreen')">Submit Application</button>
+  </div>
+
+  <!-- Allocation Results Screen -->
+  <div id="allocationScreen" class="screen hidden">
+    <h2>Allocation Results</h2>
+    <p>You have been allocated Hostel A, Room 12.</p>
+    <button onclick="showScreen('loginScreen')">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
