@@ -12,56 +12,27 @@
   </header>
 
   <main>
-    <!-- Login Section -->
-    <section id="loginScreen" class="screen active">
-      <h2>Login</h2>
+    <!-- Admin Login Portal -->
+    <section id="adminLogin" class="portal">
+      <h2>Admin Sign In</h2>
+      <small>Authorized personnel only</small>
       <form>
-        <input type="text" id="userRole" placeholder="Enter Role (Student/Admin)" required>
-        <input type="text" id="studentId" placeholder="Enter Student ID">
-        <input type="password" id="password" placeholder="Enter Password">
-        <button type="button" onclick="login()">Login</button>
-        <p>New student? <a href="#" onclick="showScreen('registerScreen')">Register here</a></p>
+        <input type="email" id="adminEmail" placeholder="Enter Admin Email (e.g., edrickwaiswa@gmail.com)" required>
+        <input type="password" id="adminPassword" placeholder="Enter your password" required>
+        <button type="button" onclick="adminLogin()">Login as Admin</button>
       </form>
     </section>
 
-    <!-- Registration Section -->
-    <section id="registerScreen" class="screen hidden">
-      <h2>Student Registration</h2>
+    <!-- Student Login Portal -->
+    <section id="studentLogin" class="portal">
+      <h2>Student Sign In</h2>
+      <small>Enter your email</small>
       <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="text" placeholder="Course" required>
-        <input type="text" placeholder="Year of Study" required>
-        <input type="email" placeholder="Email Address" required>
-        <button type="button" onclick="showScreen('applicationScreen')">Submit Registration</button>
+        <input type="email" id="studentEmail" placeholder="Enter Student Email" required>
+        <input type="password" id="studentPassword" placeholder="Enter Password" required>
+        <button type="button" onclick="studentLogin()">Login as Student</button>
+        <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
       </form>
-    </section>
-
-    <!-- Application Section -->
-    <section id="applicationScreen" class="screen hidden">
-      <h2>Hostel Application</h2>
-      <form>
-        <label>Select Hostel:</label>
-        <select>
-          <option>Hostel A</option>
-          <option>Hostel B</option>
-          <option>Hostel C</option>
-        </select>
-        <label>Room Preference:</label>
-        <select>
-          <option>Single Room</option>
-          <option>Double Room</option>
-        </select>
-        <button type="button" onclick="showScreen('allocationScreen')">Submit Application</button>
-      </form>
-    </section>
-
-    <!-- Allocation Results Section -->
-    <section id="allocationScreen" class="screen hidden">
-      <h2>Allocation Results</h2>
-      <div class="result-box">
-        <p>🎉 Congratulations! You have been allocated <strong>Hostel A, Room 12</strong>.</p>
-      </div>
-      <button type="button" onclick="showScreen('loginScreen')">Logout</button>
     </section>
   </main>
 
