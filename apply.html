@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Application Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🏛️ MUST Hostel Portal</div>
+        <nav>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Hostel Accommodation Application</h2>
+        <p class="subtitle">Fill out your academic and preference details for automated room matching.</p>
+        
+        <form action="success.html" method="GET">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Mihigo Vallerian Ivan" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Academic Program / Course</label>
+                <input type="text" id="course" placeholder="BSc. Information and Communications Technology" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year of Study</label>
+                <select id="year" required>
+                    <option value="">Select Year</option>
+                    <option value="1">Year One</option>
+                    <option value="2">Year Two</option>
+                    <option value="3">Year Three</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hostelPref">Preferred Hostel</label>
+                <select id="hostelPref" required>
+                    <option value="">Select Hostel Preference</option>
+                    <option value="Kyugando">Kyugando Hostel (Main Campus)</option>
+                    <option value="Lakeview">Lakeview Residence</option>
+                    <option value="Sunshine">Sunshine Hall</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-block">Submit Application & Run Allocation</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mbarara University of Science and Technology - Agile Group A</p>
+    </footer>
+
+</body>
+</html>
