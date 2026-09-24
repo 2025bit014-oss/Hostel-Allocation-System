@@ -1,48 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>University Hostel Allocation System</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>🏫 University Hostel Allocation System</h1>
-    <p>Plan Smart | Manage Well | Live Comfortably</p>
-  </header>
+:root {
+    --primary-pink: #e91e63;
+    --dark-pink: #c2185b;
+    --light-pink: #f8bbd0;
+    --bg-color: #fce4ec;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --transition: all 0.3s ease;
+}
 
-  <main class="portal-container">
-    <!-- Admin Portal -->
-    <section class="portal">
-      <h2>Admin Portal</h2>
-      <small>Authorized personnel only</small>
-      <form onsubmit="adminLogin(event)">
-        <input type="email" id="adminEmail" placeholder="Admin Email Address" required>
-        <input type="password" id="adminPassword" placeholder="Enter your password" required>
-        <button type="submit">Sign In</button>
-        <p><a href="register_admin.html">Sign Up as Admin</a></p>
-        <p><a href="forgot-password.html">Forgot your password?</a></p>
-      </form>
-    </section>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    <!-- Student Portal -->
-    <section class="portal">
-      <h2>Student Portal</h2>
-      <small>Enter your email</small>
-      <form onsubmit="studentLogin(event)">
-        <input type="email" id="studentEmail" placeholder="Student Email Address" required>
-        <input type="password" id="studentPassword" placeholder="Enter your password" required>
-        <button type="submit">Sign In</button>
-        <p><a href="register.html">Sign Up as Student</a></p>
-        <p><a href="forgot-password.html">Forgot your password?</a></p>
-      </form>
-    </section>
-  </main>
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-  <footer>
-    <p>&copy; 2026 University Hostel Allocation System</p>
-  </footer>
+/* Header & Navigation */
+header {
+    background-color: var(--primary-pink);
+    color: var(--white);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    color: var(--light-pink);
+    border-bottom: 2px solid var(--white);
+    padding-bottom: 3px;
+}
+
+/* Main Container Layout */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.15);
+    flex: 1;
+    width: 90%;
+}
+
+h2 {
+    color: var(--primary-pink);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+p.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* Forms & Inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-pink);
+    outline: none;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--primary-pink);
+    color: var(--white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--dark-pink);
+    box-shadow: 0 4px 10px rgba(194, 24, 91, 0.3);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Success Card View */
+.success-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary-pink);
+    margin-bottom: 15px;
+}
+
+.allocation-details {
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.allocation-details p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--white);
+    color: var(--text-muted);
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+}
