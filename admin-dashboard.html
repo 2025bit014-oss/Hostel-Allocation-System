@@ -100,17 +100,22 @@
             window.location.href = 'index.html';
         }
 
-        // Load applications from localStorage
+        // Load applications with default mock data if empty
         function loadApplications() {
-            const tableBody = document.getElementById('applicationsTableBody');
-            let applications = JSON.parse(localStorage.getItem('hostelApplications')) || [];
+            let applications = JSON.parse(localStorage.getItem('hostelApplications'));
             
-            document.getElementById('totalAppsCount').innerText = applications.length;
-
-            if (applications.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">No student applications submitted yet. Open the student portal to add entries.</td></tr>`;
-                return;
+            // If nothing is in local storage yet, initialize with default student entries
+            if (!applications || applications.length === 0) {
+                applications = [
+                    { name: "Mihigo Vallerian Ivan", regNo: "23/U/MSD/0874/P", choice: "Block C, Room 204", status: "Approved" },
+                    { name: "Amina Nakato", regNo: "23/U/SCI/1102/P", choice: "Block A, Room 102", status: "Pending Review" },
+                    { name: "Kigozi David", regNo: "23/U/BIT/0421/P", choice: "Block B, Room 310", status: "Pending Review" }
+                ];
+                localStorage.setItem('hostelApplications', JSON.stringify(applications));
             }
+
+            const tableBody = document.getElementById('applicationsTableBody');
+            document.getElementById('totalAppsCount').innerText = applications.length;
 
             tableBody.innerHTML = '';
             applications.forEach((app, index) => {
