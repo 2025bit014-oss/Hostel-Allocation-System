@@ -3,80 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Hostel Allocation System</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>University Hostel Allocation System - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-building me-2"></i>UniHostel Portal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="student-dashboard.html">Student Portal</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Admin Portal</a></li>
-                </ul>
-            </div>
+            <span class="navbar-brand fw-bold"><i class="fas fa-building me-2"></i>UniHostel Portal</span>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-primary text-white text-center py-5 shadow">
-        <div class="container py-4">
-            <h1 class="display-4 fw-bold">Fair, Efficient & Transparent Hostel Allocation</h1>
-            <p class="lead col-lg-8 mx-auto mt-3">Automating student registration, room tracking, and administrative oversight to eliminate bias, duplication, and manual errors.</p>
-            <div class="mt-4">
-                <a href="student-dashboard.html" class="btn btn-light btn-lg px-4 me-2 fw-bold text-primary">Student Apply</a>
-                <a href="admin-dashboard.html" class="btn btn-outline-light btn-lg px-4">Admin Dashboard</a>
-            </div>
-        </div>
-    </header>
+    <div class="container my-auto py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow border-0 p-4">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-circle fa-3x text-primary mb-2"></i>
+                        <h3 class="fw-bold">Hostel System Login</h3>
+                        <p class="text-muted small">Select your role and enter credentials to access your portal</p>
+                    </div>
 
-    <!-- Features Section -->
-    <main class="container my-5">
-        <div class="row g-4 text-center">
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm p-3">
-                    <div class="card-body">
-                        <div class="text-primary fs-1 mb-3"><i class="fas fa-user-check"></i></div>
-                        <h3 class="h5 fw-bold">Equal Opportunity</h3>
-                        <p class="text-muted">Automated registration and application workflows ensure every student gets a fair and transparent chance at accommodation.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm p-3">
-                    <div class="card-body">
-                        <div class="text-primary fs-1 mb-3"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="h5 fw-bold">Real-Time Tracking</h3>
-                        <p class="text-muted">Automated allocation algorithms eliminate double-booking, manage capacity dynamically, and update room availability instantly.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm p-3">
-                    <div class="card-body">
-                        <div class="text-primary fs-1 mb-3"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="h5 fw-bold">Interactive Oversight</h3>
-                        <p class="text-muted">Administrators and wardens get full visibility to monitor occupancy, validate housing policy compliance, and generate reports.</p>
-                    </div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginRole" class="form-label fw-bold">Select Role</label>
+                            <select class="form-select" id="loginRole" required>
+                                <option value="student">Student (Manual Application & Status)</option>
+                                <option value="admin">Admin / Warden (Review & Reports)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userEmail" class="form-label fw-bold">Email / Reg Number</label>
+                            <input type="text" class="form-control" id="userEmail" placeholder="e.g. 2025/BIT/001 or admin@uni.edu" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userPassword" class="form-label fw-bold">Password</label>
+                            <input type="password" class="form-control" id="userPassword" placeholder="Enter password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">Login Securely</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <p class="mb-0">&copy; 2026 University Hostel Allocation System. All rights reserved.</p>
+        <p class="mb-0">&copy; 2026 University Hostel Allocation System</p>
     </footer>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.getElementById('loginRole').value;
+            const identifier = document.getElementById('userEmail').value;
+
+            // Save login state locally
+            localStorage.setItem('uniHostelUser', identifier);
+            localStorage.setItem('uniHostelRole', role);
+
+            if (role === 'student') {
+                window.location.href = 'student-dashboard.html';
+            } else {
+                window.location.href = 'admin-dashboard.html';
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
