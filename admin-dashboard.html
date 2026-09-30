@@ -107,9 +107,11 @@
             // If nothing is in local storage yet, initialize with default student entries
             if (!applications || applications.length === 0) {
                 applications = [
-                    { name: "Mihigo Vallerian Ivan", regNo: "23/U/MSD/0874/P", choice: "Block C, Room 204", status: "Approved" },
-                    { name: "Amina Nakato", regNo: "23/U/SCI/1102/P", choice: "Block A, Room 102", status: "Pending Review" },
-                    { name: "Kigozi David", regNo: "23/U/BIT/0421/P", choice: "Block B, Room 310", status: "Pending Review" }
+                    { name: "Jamal Delegate", regNo: "2025/BIT/101/PS", choice: "Block C, Room 204", status: "Approved" },
+                    { name: "Kobusingye Phionah, regNo: "2025/BIT/130/PS", choise: "Block A, Room 100", status: "Appeoved" },
+                    { name: "Nomwesigwa Gracious, regNo: "2025/BIT/166/PS", choise: "Block C, Room 200", status: "Pendind Review" },
+                    { name: "Nakasango Desire", regNo: "2025/BIT/166/PS", choice: "Block A, Room 102", status: "Pending Review" },
+                    { name: "Waiswa Edrick Kizito", regNo: "2025/BIT/014", choice: "Block B, Room 310", status: "Pending Review" }
                 ];
                 localStorage.setItem('hostelApplications', JSON.stringify(applications));
             }
