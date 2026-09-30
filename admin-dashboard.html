@@ -49,7 +49,7 @@
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 fw-bold"><i class="fas fa-users me-2 text-primary"></i>Live Student Room Applications</h5>
-                        <button class="btn btn-sm btn-outline-secondary" onclick="loadApplications()"><i class="fas fa-sync-alt"></i> Refresh List</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="resetDefaultApplications()"><i class="fas fa-sync-alt"></i> Reset / Refresh List</button>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -100,20 +100,31 @@
             window.location.href = 'index.html';
         }
 
-        // Load applications with default mock data if empty
+        // Force reset or initialize with the 8 specified students
+        function resetDefaultApplications() {
+            const defaultApplications = [
+                { name: "Jamal Delegate", regNo: "2025/BIT/001/PS", choice: "Block A (Olympia), Room 101", status: "Pending Review" },
+                { name: "Nakassagi Desire", regNo: "2025/BIT/002/PS", choice: "Block B (Nana Hall), Room 102", status: "Approved" },
+                { name: "Waiswa Edrick Kizito", regNo: "2025/BIT/003/PS", choice: "Block C (Likwago Residence), Room 201", status: "Pending Review" },
+                { name: "Nomwesigwa Gracious", regNo: "2025/BIT/004/PS", choice: "Block D (Fountain Hall), Room 204", status: "Approved" },
+                { name: "Ahimbisibwe Janet", regNo: "2025/BIT/005/PS", choice: "Block E (University Hall), Room 310", status: "Pending Review" },
+                { name: "Ainamatsiko Livingstone", regNo: "2025/BIT/006/PS", choice: "Block A (Olympia), Room 312", status: "Rejected" },
+                { name: "Jones Mugume", regNo: "2025/BIT/007/PS", choice: "Block B (Nana Hall), Room 101", status: "Pending Review" },
+                { name: "Kobusingye Phionah", regNo: "2025/BIT/008/PS", choice: "Block C (Likwago Residence), Room 204", status: "Approved" }
+            ];
+
+            localStorage.setItem('hostelApplications', JSON.stringify(defaultApplications));
+            loadApplications();
+        }
+
+        // Load applications from localStorage
         function loadApplications() {
             let applications = JSON.parse(localStorage.getItem('hostelApplications'));
             
-            // If nothing is in local storage yet, initialize with default student entries
+            // If empty or first time, populate with the 8 students
             if (!applications || applications.length === 0) {
-                applications = [
-                    { name: "Jamal Delegate", regNo: "2025/BIT/101/PS", choice: "Block C, Room 204", status: "Approved" },
-                    { name: "Kobusingye Phionah, regNo: "2025/BIT/130/PS", choise: "Block A, Room 100", status: "Appeoved" },
-                    { name: "Nomwesigwa Gracious, regNo: "2025/BIT/166/PS", choise: "Block C, Room 200", status: "Pendind Review" },
-                    { name: "Nakasango Desire", regNo: "2025/BIT/166/PS", choice: "Block A, Room 102", status: "Pending Review" },
-                    { name: "Waiswa Edrick Kizito", regNo: "2025/BIT/014", choice: "Block B, Room 310", status: "Pending Review" }
-                ];
-                localStorage.setItem('hostelApplications', JSON.stringify(applications));
+                resetDefaultApplications();
+                return;
             }
 
             const tableBody = document.getElementById('applicationsTableBody');
@@ -128,7 +139,7 @@
                 tableBody.innerHTML += `
                     <tr>
                         <td class="fw-bold">${app.name}</td>
-                        <td>${app.regNo}</td>
+                        <td><code>${app.regNo}</code></td>
                         <td><span class="text-dark fw-semibold">${app.choice}</span></td>
                         <td><span class="badge ${badgeClass}">${app.status}</span></td>
                         <td>
