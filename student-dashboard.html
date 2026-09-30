@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal - Hostel Allocation</title>
+    <title>Student Portal - Manual Hostel Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -23,27 +23,27 @@
     <div class="container my-4">
         <!-- Notification Alert Banner -->
         <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
-            <i class="fas fa-check-circle me-2"></i><strong>Allocation Update:</strong> Your hostel application for <strong>Block C (Room 204)</strong> has been successfully approved! Check details below.
+            <i class="fas fa-check-circle me-2"></i><strong>Application Notice:</strong> Your manual request for <strong>Block C, Room 204</strong> has been submitted for Warden review.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
         <div class="row g-4">
-            <!-- Left Column: Application Form -->
+            <!-- Left Column: Manual Application Form -->
             <div class="col-lg-7">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-primary text-white py-3">
-                        <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Hostel Application Form</h5>
+                        <h5 class="mb-0"><i class="fas fa-edit me-2"></i>Manual Hostel & Room Application Form</h5>
                     </div>
                     <div class="card-body p-4">
-                        <form id="applicationForm">
+                        <form id="manualApplicationForm">
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" value="Mihigo Vallerian Ivan" required>
+                                <input type="text" class="form-control" id="fullName" value="Waiswa Edrick Kizito" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="regNumber" class="form-label">Registration Number</label>
-                                    <input type="text" class="form-control" id="regNumber" value="23/U/MSD/0874/P" required>
+                                    <input type="text" class="form-control" id="regNumber" value="2025/BIT/001/PS" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="yearOfStudy" class="form-label">Year of Study</label>
@@ -54,19 +54,24 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="hostelPreference" class="form-label">Preferred Hostel Block</label>
-                                <select class="form-select" id="hostelPreference">
-                                    <option value="Block A">Block A - Premium (Single)</option>
-                                    <option value="Block B">Block B - Standard (Double)</option>
-                                    <option value="Block C" selected>Block C - Regular (Double)</option>
-                                </select>
+
+                            <!-- Manual Entry Fields -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputHostel" class="form-label">Type Preferred Hostel</label>
+                                    <input type="text" class="form-control" id="inputHostel" placeholder="e.g. Lumumba Hall / Block C" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputRoom" class="form-label">Type Preferred Room Number</label>
+                                    <input type="text" class="form-control" id="inputRoom" placeholder="e.g. Room 204" required>
+                                </div>
                             </div>
+
                             <div class="mb-3">
-                                <label for="specialNeeds" class="form-label">Special Accommodations / Medical Notes (Optional)</label>
-                                <textarea class="form-control" id="specialNeeds" rows="2" placeholder="Mention any medical or accessibility requirements..."></textarea>
+                                <label for="specialNeeds" class="form-label">Special Accommodations / Reason for Selection (Optional)</label>
+                                <textarea class="form-control" id="specialNeeds" rows="2" placeholder="Specify any specific preference reasons..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit Application</button>
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit Manual Application</button>
                         </form>
                     </div>
                 </div>
@@ -76,29 +81,29 @@
             <div class="col-lg-5">
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-header bg-dark text-white py-3">
-                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Current Allocation Status</h5>
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Requested Selection Status</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Application Status: 
-                                <span class="badge bg-success fs-6">Approved</span>
+                                Application Type: 
+                                <span class="badge bg-secondary fs-6">Manual Entry</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Assigned Block: 
+                                Requested Hostel/Block: 
                                 <span class="fw-bold text-dark">Block C</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Assigned Room: 
+                                Requested Room: 
                                 <span class="fw-bold text-dark">Room 204</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Warden Verification: 
-                                <span class="text-success"><i class="fas fa-check-double"></i> Verified</span>
+                                Approval Status: 
+                                <span class="badge bg-success fs-6">Approved by Warden</span>
                             </li>
                         </ul>
                         <div class="mt-3 text-center">
-                            <button class="btn btn-outline-secondary w-100" onclick="alert('Downloading digital allocation slip...')">Download Allocation Slip</button>
+                            <button class="btn btn-outline-secondary w-100" onclick="alert('Downloading manual allocation slip...')">Download Allocation Slip</button>
                         </div>
                     </div>
                 </div>
@@ -108,9 +113,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+        document.getElementById('manualApplicationForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Hostel application successfully submitted and queued in the allocation algorithm!');
+            alert('Your manual hostel and room choice has been submitted successfully to the admin review queue!');
         });
     </script>
 </body>
